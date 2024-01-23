@@ -84,16 +84,15 @@ export function Home() {
   }
   // * interromper o ciclo
   function handleInteruptCycle() {
-    setCycles(
-      cycles.map((cycle) => {
-        if (cycle.id === activeCycle) {
+    setCycles((state) =>
+      state.map((cycle) => {
+        if (cycle.id === activeCycleId) {
           return { ...cycle, interruptedDate: new Date() }
         } else {
           return cycle
         }
       }),
     )
-
     setActiveCycleId(null)
   }
 
